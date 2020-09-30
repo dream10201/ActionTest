@@ -1,6 +1,10 @@
 name: Test Actions
 on: 
+  release:
+    types: [published]
   push:
+    tages:
+    - 'v*'
 
 jobs:
   one:
@@ -12,8 +16,11 @@ jobs:
         uses: actions/checkout@v2
       -
         name: test
+        env:
+          FILECLOUD_VERSION: ${{github.ref}}
         run: |
-          echo "`ls`"
+          git checkout ${GITHUB_REF##*refs/heads/}
+          echo "`git branch`"
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
