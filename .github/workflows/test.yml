@@ -1,7 +1,9 @@
 name: Test Actions
 on: 
+  release:
+    types: [published]
   push:
-    tages:
+    tags:
     - 'v*'
 
 jobs:
@@ -19,9 +21,8 @@ jobs:
         run: |
           git checkout ${GITHUB_REF##*refs/heads/}
           echo "`git branch`"
-      - name: Dump GitHub context
+      - name: echo version
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
           FILECLOUD_VERSION: ${{github.ref}}
         run: #echo "$GITHUB_CONTEXT"
           echo "${GITHUB_REF##*refs/heads/}"
