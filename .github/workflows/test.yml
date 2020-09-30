@@ -14,13 +14,16 @@ jobs:
       -
         name: checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
         env:
           FILECLOUD_VERSION: ${{github.ref}}
       -
         name: test
         run: |
+          echo "`git branch`"
           git checkout ${FILECLOUD_VERSION##*refs/heads/}
           echo "`git branch`"
       - name: echo version
-        run: #echo "$GITHUB_CONTEXT"
+        run: |
           echo "${FILECLOUD_VERSION##*refs/heads/}"
