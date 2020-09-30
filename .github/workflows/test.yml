@@ -1,7 +1,5 @@
 name: Test Actions
 on: 
-  release:
-    types: [published]
   push:
     tages:
     - 'v*'
