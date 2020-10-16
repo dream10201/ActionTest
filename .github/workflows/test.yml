@@ -12,8 +12,7 @@ jobs:
   one:
     runs-on: ubuntu-latest
     env:
-      ttt: hhhh
+      ttt: $(date "+%Y-%m-%d-%H%M")
     steps:
-      - run: export rtime=`date "+%Y-%m-%d-%H%M"`
       - name : 打包发布
         run: echo ${rtime}
