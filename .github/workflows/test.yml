@@ -14,9 +14,10 @@ jobs:
     env:
       ttt: hhhh
     steps:
+      - run: export rtime=${date "+%Y-%m-%d-%H%M"}
       - name : 打包发布
         uses: actions/upload-artifact@master
         if: always()
         with:
-          name: Padavan-${{date "+%Y-%m-%d-%H%M"}}
+          name: Padavan-${rtime}
           path: /root
