@@ -17,9 +17,10 @@ jobs:
       -
         name: checkout
         run:
+          export ffs=${ffs}/fsdfsdf
           echo ${ffs}
         env:
-          ffs: ${ttt} 
+          ffs: fffff 
       - name: fff
         run:
           echo $ttt
