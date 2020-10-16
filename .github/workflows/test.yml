@@ -17,7 +17,7 @@ jobs:
       -
         name: checkout
         run:
-          echo $ttt
+          echo sdfsdgwe${ttt}fsdfsd
       - name: fff
         run:
           echo $ttt
