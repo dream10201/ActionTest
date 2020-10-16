@@ -20,4 +20,4 @@ jobs:
         if: always()
         with:
           name: Padavan-${rtime}
-          path: /mnt
+          path: ./
