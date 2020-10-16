@@ -14,13 +14,9 @@ jobs:
     env:
       ttt: hhhh
     steps:
-      -
-        name: checkout
-        run: |
-          export ffs=${ffs}/111111
-          echo ${ffs}
-        env:
-          ffs: fffff 
-      - name: fff
-        run:
-          echo $ttt
+      - name : 打包发布
+        uses: actions/upload-artifact@master
+        if: always()
+        with:
+          name: Padavan-${date "+%Y-%m-%d-%H%M"}
+          path: /opt
