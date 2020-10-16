@@ -18,5 +18,5 @@ jobs:
         uses: actions/upload-artifact@master
         if: always()
         with:
-          name: Padavan-${date "+%Y-%m-%d-%H%M"}
-          path: /opt
+          name: Padavan-${{date "+%Y-%m-%d-%H%M"}}
+          path: /root
