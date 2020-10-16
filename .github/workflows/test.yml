@@ -16,8 +16,8 @@ jobs:
     steps:
       -
         name: checkout
-        run:
-          export ffs=${ffs}/fsdfsdf
+        run: |
+          export ffs=${ffs}/111111
           echo ${ffs}
         env:
           ffs: fffff 
