@@ -16,8 +16,4 @@ jobs:
     steps:
       - run: export rtime=`date "+%Y-%m-%d-%H%M"`
       - name : 打包发布
-        uses: actions/upload-artifact@master
-        if: always()
-        with:
-          name: Padavan-${rtime}
-          path: ./
+        run: echo ${rtime}
