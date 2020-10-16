@@ -1,29 +1,23 @@
 name: Test Actions
-on: 
+on:
   release:
     types: [published]
   push:
     tags:
     - 'v*'
+  watch:
+    types: [started]
 
 jobs:
   one:
     runs-on: ubuntu-latest
-#    if: startsWith(github.ref,'refs/tags/v')
+    env:
+      ttt: hhhh
     steps:
       -
         name: checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-        env:
-          FILECLOUD_VERSION: ${{github.ref}}
-      -
-        name: test
-        run: |
-          echo "`git branch`"
-          git checkout ${FILECLOUD_VERSION##*refs/heads/}
-          echo "`git branch`"
-      - name: echo version
-        run: |
-          echo "${FILECLOUD_VERSION##*refs/heads/}"
+        run:
+          echo $ttt
+      - name: fff
+        run:
+          echo $ttt
