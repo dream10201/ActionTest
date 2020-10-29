@@ -11,6 +11,7 @@ on:
 jobs:
   one:
     runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
     env:
       rtime: ${date "+%Y-%m-%d-%H%M"}
     steps:
