@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: job1
         env:
-          GITHUB_CONTEXT: github.event.commits.message
+          GITHUB_CONTEXT: ${{ github.event.commits.message }}
         run: echo "$GITHUB_CONTEXT" 
       - name: Dump GitHub context
         env:
