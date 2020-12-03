@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     #if: github.event.repository.owner.id == github.event.sender.id
     steps:
+      - name: job1
+        env:
+          GITHUB_CONTEXT: github.event.commits.message
+        run: echo "$GITHUB_CONTEXT" 
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
