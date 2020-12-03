@@ -15,10 +15,10 @@ jobs:
     steps:
       - name: job1
         run: echo "${{ github.event.commits.message }}" 
-      # - name: Dump GitHub context
-        # env:
-          # GITHUB_CONTEXT: ${{ toJson(github) }}
-        # run: echo "$GITHUB_CONTEXT"
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       # - name: Dump job context
         # env:
           # JOB_CONTEXT: ${{ toJson(job) }}
