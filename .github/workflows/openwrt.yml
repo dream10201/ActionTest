@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: OpenWrt
 
 # Controls when the action will run. 
 on:
@@ -19,9 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          apt update
-          apt upgrade -y
-          apt install git gcc binutils bzip2 flex python3 perl make find grep diff unzip gawk getopt subversion libz-dev libc-dev rsync -y
+          sudo apt update
+          sudo apt upgrade -y
+          sudo apt install git gcc binutils bzip2 flex python3 perl make find grep diff unzip gawk getopt subversion libz-dev libc-dev rsync -y
           git clone https://github.com/openwrt/openwrt.git
           cd openwrt
           ./scripts/feeds update -a
