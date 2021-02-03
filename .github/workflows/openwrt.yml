@@ -25,7 +25,6 @@ jobs:
           cd openwrt
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-          make menuconfig
       - name: Start SSH via tmate
         uses: P3TERX/ssh2actions@main
         env:
