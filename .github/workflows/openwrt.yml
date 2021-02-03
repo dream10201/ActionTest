@@ -18,6 +18,11 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
+      - name: Start SSH via tmate
+        uses: P3TERX/ssh2actions@main
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       - run: |
           sudo apt update
           sudo apt upgrade -y
@@ -27,8 +32,3 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a
           make menuconfig
-      - name: Start SSH via tmate
-        uses: P3TERX/ssh2actions@main
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
