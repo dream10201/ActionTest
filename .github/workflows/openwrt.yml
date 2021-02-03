@@ -18,17 +18,20 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
-      - name: Start SSH via tmate
-        uses: P3TERX/ssh2actions@main
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       - run: |
           sudo apt update
-          sudo apt upgrade -y
-          sudo apt install git gcc binutils bzip2 flex python3 perl make find grep diff unzip gawk getopt subversion libz-dev libc-dev rsync -y
+          sudo apt install build-essential ccache ecj fastjar file g++ gawk \
+          gettext git java-propose-classpath libelf-dev libncurses5-dev \
+          libncursesw5-dev libssl-dev python python2.7-dev python3 unzip wget \
+          python3-distutils python3-setuptools rsync subversion swig time \
+          xsltproc zlib1g-dev -y
           git clone https://github.com/openwrt/openwrt.git
           cd openwrt
           ./scripts/feeds update -a
           ./scripts/feeds install -a
           make menuconfig
+      - name: Start SSH via tmate
+        uses: P3TERX/ssh2actions@main
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
